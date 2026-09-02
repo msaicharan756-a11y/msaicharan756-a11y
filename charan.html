@@ -3,345 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AI Brutalist Portfolio</title>
 
     <style>
-        /* =========================
-           RESET
-        ========================= */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            background: #e8e8e8;
             color: #111;
-            line-height: 1.4;
         }
 
-        /* =========================
-           NAVBAR
-        ========================= */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        /* NAVIGATION */
+
+        header {
+            border-bottom: 4px solid #111;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 30px;
-            background: #ff3b30;
-            border-bottom: 5px solid #111;
+            background: #fff;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: 900;
-            letter-spacing: -1px;
         }
 
         nav a {
-            color: #111;
             text-decoration: none;
-            font-weight: 800;
-            margin-left: 20px;
-            text-transform: uppercase;
+            color: #111;
+            margin-left: 25px;
+            font-weight: bold;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background: #111;
+            color: #fff;
+            padding: 5px;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
+
         .hero {
             min-height: 90vh;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            padding: 60px 30px;
-            border-bottom: 5px solid #111;
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .small-text {
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(60px, 10vw, 150px);
-            line-height: 0.85;
+            font-size: clamp(60px, 11vw, 150px);
+            line-height: 0.8;
             text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: -8px;
         }
 
         .hero h1 span {
-            color: #ff3b30;
-            -webkit-text-stroke: 3px #111;
+            color: #ff4d00;
         }
 
-        .hero-text {
-            margin-top: 40px;
-            max-width: 650px;
+        .hero p {
+            margin-top: 35px;
             font-size: 22px;
-            font-weight: 700;
+            font-weight: bold;
+            max-width: 600px;
         }
 
-        .ai-box {
-            align-self: center;
-            background: #b7ff00;
-            border: 5px solid #111;
-            padding: 30px;
-            box-shadow: 15px 15px 0 #111;
-        }
-
-        .ai-box h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .ai-box p {
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        /* =========================
-           BUTTON
-        ========================= */
-        .button {
+        .hero-button {
             display: inline-block;
             margin-top: 30px;
-            padding: 15px 25px;
             background: #111;
             color: white;
+            padding: 18px 30px;
             text-decoration: none;
+            font-weight: bold;
             border: 3px solid #111;
-            font-weight: 900;
-            text-transform: uppercase;
         }
 
-        .button:hover {
-            background: white;
+        .hero-button:hover {
+            background: #ff4d00;
             color: #111;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
-        section {
-            padding: 80px 30px;
-            border-bottom: 5px solid #111;
+        /* AI CARD */
+
+        .ai-card {
+            width: 300px;
+            height: 300px;
+            background: #c7ff00;
+            border: 5px solid #111;
+            box-shadow: 15px 15px 0 #111;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .section-title {
-            font-size: clamp(45px, 8vw, 100px);
-            text-transform: uppercase;
+        .ai-card h2 {
+            font-size: 50px;
+            line-height: 0.9;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 8px solid #111;
+            border-radius: 50%;
+            align-self: center;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* GENERAL SECTION */
+
+        section {
+            padding: 90px 5%;
+            border-top: 4px solid #111;
+        }
+
+        .title {
+            font-size: clamp(50px, 8vw, 100px);
             font-weight: 900;
-            letter-spacing: -5px;
+            text-transform: uppercase;
             margin-bottom: 50px;
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
-        .about {
+        /* ABOUT */
+
+        .about-container {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
 
-        .about-text {
-            font-size: 28px;
-            font-weight: 700;
+        .about-box {
+            background: white;
+            border: 4px solid #111;
+            padding: 35px;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        .about-card {
-            background: #00e5ff;
-            border: 5px solid #111;
-            padding: 30px;
-            box-shadow: 12px 12px 0 #111;
+        .about-box:nth-child(2) {
+            background: #00d9ff;
         }
 
-        .about-card h3 {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
+        /* SKILLS */
 
-        /* =========================
-           SKILLS
-        ========================= */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
 
         .skill {
-            padding: 15px 20px;
             border: 4px solid #111;
             background: white;
+            padding: 25px;
+            font-size: 25px;
             font-weight: 900;
-            font-size: 20px;
             text-transform: uppercase;
         }
 
-        .skill:nth-child(2n) {
-            background: #b7ff00;
+        .skill:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 8px 8px 0 #111;
         }
 
-        .skill:nth-child(3n) {
-            background: #ff3b30;
-        }
+        /* PROJECTS */
 
-        /* =========================
-           PROJECTS
-        ========================= */
-        .projects {
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
         .project {
-            border: 5px solid #111;
-            background: white;
+            min-height: 350px;
             padding: 30px;
-            min-height: 300px;
-            box-shadow: 12px 12px 0 #111;
+            border: 4px solid #111;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .project:nth-child(1) {
-            background: #b7ff00;
+            background: #ff4d00;
         }
 
         .project:nth-child(2) {
-            background: #00e5ff;
+            background: #c7ff00;
         }
 
         .project:nth-child(3) {
-            background: #ff3b30;
+            background: #00d9ff;
+        }
+
+        .project-number {
+            font-family: monospace;
+            font-size: 20px;
         }
 
         .project h3 {
-            font-size: 40px;
+            font-size: 38px;
             text-transform: uppercase;
-            margin-bottom: 20px;
         }
 
         .project p {
             font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .project a {
             color: #111;
             font-weight: 900;
-            text-transform: uppercase;
         }
 
-        /* =========================
-           AI TERMINAL
-        ========================= */
-        .terminal {
+        /* AI SECTION */
+
+        .ai-section {
             background: #111;
-            color: #b7ff00;
-            border: 5px solid #111;
-            padding: 30px;
-            font-family: "Courier New", monospace;
-            font-size: 18px;
-            box-shadow: 15px 15px 0 #ff3b30;
-        }
-
-        .terminal-title {
             color: white;
-            margin-bottom: 25px;
-            font-weight: bold;
         }
 
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: #b7ff00;
-            animation: blink 0.8s infinite;
+        .ai-section .title {
+            color: #c7ff00;
         }
 
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+        .terminal {
+            border: 4px solid white;
+            padding: 35px;
+            font-family: monospace;
+            font-size: 20px;
+            max-width: 900px;
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
+        .green {
+            color: #c7ff00;
+        }
+
+        /* CONTACT */
+
         .contact {
-            background: #ff3b30;
+            background: #ff4d00;
         }
 
         .contact h2 {
-            font-size: clamp(50px, 10vw, 130px);
-            line-height: 0.9;
-            text-transform: uppercase;
+            font-size: clamp(60px, 12vw, 160px);
+            line-height: 0.8;
             font-weight: 900;
-            letter-spacing: -6px;
+            text-transform: uppercase;
         }
 
         .contact p {
             font-size: 25px;
-            font-weight: 800;
-            margin-top: 30px;
+            font-weight: bold;
+            margin-top: 40px;
         }
 
         .contact a {
             color: #111;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
+
         footer {
-            padding: 25px 30px;
             background: #111;
             color: white;
+            padding: 25px 5%;
             display: flex;
             justify-content: space-between;
-            font-weight: 800;
+            font-family: monospace;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* MOBILE */
+
         @media (max-width: 800px) {
 
-            nav {
+            header {
                 flex-direction: column;
                 gap: 15px;
             }
 
             nav a {
-                margin: 0 8px;
+                margin: 0 7px;
+                font-size: 14px;
             }
 
             .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ai-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-container {
                 grid-template-columns: 1fr;
             }
 
-            .hero h1 {
-                letter-spacing: -4px;
-            }
-
-            .about {
+            .skill-list {
                 grid-template-columns: 1fr;
             }
 
-            .projects {
+            .project-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -355,223 +350,284 @@
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">[ YOUR NAME ]</div>
+    <!-- NAVBAR -->
 
-        <div>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+    <header>
 
-
-    <!-- HERO -->
-    <header class="hero">
-
-        <div>
-            <h1>
-                Creative<br>
-                <span>AI</span><br>
-                Developer
-            </h1>
-
-            <p class="hero-text">
-                I build bold digital experiences using code,
-                artificial intelligence and unconventional design.
-            </p>
-
-            <a href="#projects" class="button">
-                View My Work →
-            </a>
+        <div class="logo">
+            AI.DEV
         </div>
 
-        <div class="ai-box">
-            <h2>AI // ONLINE</h2>
-
-            <p>
-                SYSTEM STATUS: ACTIVE
-            </p>
-
-            <p>
-                DESIGN: BRUTALIST
-            </p>
-
-            <p>
-                CREATIVITY: 100%
-            </p>
-
-            <p>
-                COFFEE: REQUIRED
-            </p>
-        </div>
+        <nav>
+            <a href="#about">ABOUT</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#projects">WORK</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
 
     </header>
 
 
-    <!-- ABOUT -->
-    <section id="about">
+    <!-- HERO -->
 
-        <h2 class="section-title">About Me</h2>
+    <main>
 
-        <div class="about">
+        <section class="hero">
 
-            <div class="about-text">
-                Designer + Developer + AI Explorer.
-            </div>
+            <div class="hero-content">
 
-            <div class="about-card">
+                <div class="small-text">
+                    &lt;HELLO_WORLD /&gt;
+                </div>
 
-                <h3>WHO AM I?</h3>
+                <h1>
+                    BUILD<br>
+                    <span>THINK</span><br>
+                    CREATE
+                </h1>
 
                 <p>
-                    I'm a creative developer who enjoys turning
-                    ideas into interactive digital experiences.
-                    I experiment with AI, web technologies,
-                    creative coding and bold visual systems.
+                    I'm a creative developer exploring the intersection
+                    of artificial intelligence, design and technology.
+                </p>
+
+                <a href="#projects" class="hero-button">
+                    EXPLORE MY WORK →
+                </a>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div>
+                    <small>AI SYSTEM</small>
+                    <h2>
+                        NEURAL<br>
+                        MODE
+                    </h2>
+                </div>
+
+                <div class="circle"></div>
+
+                <strong>
+                    STATUS: ONLINE_
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <h2 class="title">
+                ABOUT
+            </h2>
+
+            <div class="about-container">
+
+                <div class="about-box">
+                    I turn ideas into digital experiences
+                    through code, creativity and AI.
+                </div>
+
+                <div class="about-box">
+                    My work focuses on web development,
+                    artificial intelligence, interface design
+                    and creative technology.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section id="skills">
+
+            <h2 class="title">
+                TOOLKIT
+            </h2>
+
+            <div class="skill-list">
+
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">AI / ML</div>
+                <div class="skill">UI DESIGN</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+
+            <h2 class="title">
+                SELECTED WORK
+            </h2>
+
+            <div class="project-grid">
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT_01
+                    </div>
+
+                    <h3>
+                        AI<br>
+                        ASSISTANT
+                    </h3>
+
+                    <p>
+                        A smart interface designed around
+                        AI-powered interactions.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT_02
+                    </div>
+
+                    <h3>
+                        FUTURE<br>
+                        WEB
+                    </h3>
+
+                    <p>
+                        An experimental website exploring
+                        brutalist design and modern technology.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT_03
+                    </div>
+
+                    <h3>
+                        DATA<br>
+                        LAB
+                    </h3>
+
+                    <p>
+                        A creative data visualization project
+                        powered by code and AI.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI TERMINAL -->
+
+        <section class="ai-section">
+
+            <h2 class="title">
+                AI LAB
+            </h2>
+
+            <div class="terminal">
+
+                <p>
+                    <span class="green">user@ai-dev</span>:~$
+                    initialize creativity
                 </p>
 
                 <br>
 
                 <p>
-                    My approach is simple:
-                    make things useful, make things interesting,
-                    and don't make them boring.
+                    Loading neural network...
+                </p>
+
+                <p>
+                    Loading design system...
+                </p>
+
+                <p>
+                    Loading imagination...
+                </p>
+
+                <p class="green">
+                    ✓ SYSTEM READY
+                </p>
+
+                <br>
+
+                <p>
+                    > What will we build next?
                 </p>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- SKILLS -->
-    <section id="skills">
+        <!-- CONTACT -->
 
-        <h2 class="section-title">Skills</h2>
+        <section id="contact" class="contact">
 
-        <div class="skills">
+            <h2>
+                LET'S<br>
+                MAKE<br>
+                THE<br>
+                FUTURE.
+            </h2>
 
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Python</div>
-            <div class="skill">AI</div>
-            <div class="skill">UI/UX</div>
-            <div class="skill">Figma</div>
-            <div class="skill">Git</div>
-            <div class="skill">Creative Coding</div>
+            <p>
+                Have an idea?
+                <a href="mailto:hello@example.com">
+                    hello@example.com
+                </a>
+            </p>
 
-        </div>
+        </section>
 
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects">
-
-        <h2 class="section-title">Projects</h2>
-
-        <div class="projects">
-
-            <article class="project">
-
-                <h3>01 / AI APP</h3>
-
-                <p>
-                    An experimental AI-powered web application
-                    designed to make complex tasks easier.
-                </p>
-
-                <a href="#">View Project →</a>
-
-            </article>
-
-
-            <article class="project">
-
-                <h3>02 / WEB LAB</h3>
-
-                <p>
-                    A brutalist website experiment combining
-                    typography, animation and interactive elements.
-                </p>
-
-                <a href="#">View Project →</a>
-
-            </article>
-
-
-            <article class="project">
-
-                <h3>03 / CREATIVE AI</h3>
-
-                <p>
-                    A collection of experiments exploring how
-                    artificial intelligence can be used in design.
-                </p>
-
-                <a href="#">View Project →</a>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- AI TERMINAL -->
-    <section>
-
-        <h2 class="section-title">AI Terminal</h2>
-
-        <div class="terminal">
-
-            <div class="terminal-title">
-                USER@PORTFOLIO:~$
-            </div>
-
-            <p>> initializing creative_engine...</p>
-            <p>> loading neural_interface...</p>
-            <p>> analyzing ideas...</p>
-            <p>> generating possibilities...</p>
-            <p>> system ready.</p>
-            <br>
-            <p>> <span class="cursor"></span></p>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-
-        <h2>
-            LET'S<br>
-            BUILD<br>
-            SOMETHING.
-        </h2>
-
-        <p>
-            Email:
-            <a href="mailto:hello@example.com">
-                hello@example.com
-            </a>
-        </p>
-
-    </section>
+    </main>
 
 
     <!-- FOOTER -->
+
     <footer>
 
-        <div>© 2026 YOUR NAME</div>
+        <span>
+            © 2026 AI.DEV
+        </span>
 
-        <div>BUILT WITH HTML + CSS + AI</div>
+        <span>
+            HTML / CSS / AI
+        </span>
 
     </footer>
 
