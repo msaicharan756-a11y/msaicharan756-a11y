@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Charan | AI Portfolio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080808;
+            color: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 230px;
+            height: 100vh;
+            border-right: 1px solid #333;
+            padding: 35px 25px;
+            background: #0c0c0c;
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: 900;
+            color: #00ff88;
+            margin-bottom: 80px;
+        }
+
+        .brand span {
+            color: white;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #999;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #00ff88;
+            padding-left: 10px;
+        }
+
+        .side-text {
+            position: absolute;
+            bottom: 30px;
+            color: #555;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* MAIN */
+
+        main {
+            margin-left: 230px;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 8%;
+            border-bottom: 1px solid #222;
+        }
+
+        /* HERO */
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag {
+            color: #00ff88;
+            font-family: monospace;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 12vw, 170px);
+            line-height: 0.8;
+            font-weight: 900;
+            letter-spacing: -8px;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 2px #00ff88;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            margin-top: 45px;
+            color: #aaa;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            margin-right: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .btn:hover {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .orb {
+            position: absolute;
+            right: 8%;
+            top: 25%;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 1px solid #00ff88;
+            box-shadow:
+                0 0 30px #00ff88,
+                inset 0 0 40px #00ff88;
+            animation: pulse 3s infinite;
+        }
+
+        .orb::before,
+        .orb::after {
+            content: "";
+            position: absolute;
+            border: 1px solid #00ff88;
+            border-radius: 50%;
+        }
+
+        .orb::before {
+            inset: 30px;
+        }
+
+        .orb::after {
+            inset: 70px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        /* ABOUT */
+
+        .section-label {
+            color: #00ff88;
+            font-family: monospace;
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-size: 60px;
+            margin-bottom: 50px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-grid p {
+            color: #aaa;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .info-box {
+            border: 1px solid #333;
+            padding: 30px;
+            background: #101010;
+        }
+
+        .info-box h3 {
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #292929;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row span:first-child {
+            color: #777;
+        }
+
+        /* SKILLS */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            min-height: 130px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #101010;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+            transform: translateY(-8px);
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project {
+            position: relative;
+            min-height: 330px;
+            padding: 35px;
+            border: 1px solid #333;
+            background: linear-gradient(
+                135deg,
+                #111,
+                #090909
+            );
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+        }
+
+        .project-number {
+            color: #00ff88;
+            font-family: monospace;
+        }
+
+        .project h3 {
+            font-size: 38px;
+            margin-top: 60px;
+        }
+
+        .project p {
+            color: #888;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            position: absolute;
+            bottom: 30px;
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* AI TERMINAL */
+
+        .terminal {
+            max-width: 900px;
+            background: #050505;
+            border: 1px solid #333;
+            padding: 30px;
+            font-family: monospace;
+            box-shadow: 0 0 30px rgba(0,255,136,0.1);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .terminal p {
+            color: #888;
+            margin: 12px 0;
+        }
+
+        .terminal .green {
+            color: #00ff88;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            padding: 40px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 55px;
+            color: #00ff88;
+        }
+
+        .stat span {
+            color: #777;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(60px, 10vw, 140px);
+            line-height: 0.85;
+        }
+
+        .contact h2 span {
+            color: #00ff88;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 40px;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            border-bottom: 2px solid #00ff88;
+            padding-bottom: 8px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-left: 230px;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-family: monospace;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #333;
+            }
+
+            .brand {
+                margin-bottom: 30px;
+            }
+
+            .menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .side-text {
+                display: none;
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            footer {
+                margin-left: 0;
+            }
+
+            .orb {
+                opacity: 0.2;
+                right: -80px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 60px 25px;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .section-heading {
+                font-size: 45px;
+            }
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            C<span>.</span>
+        </div>
+
+        <nav class="menu">
+            <a href="#home">01 / HOME</a>
+            <a href="#about">02 / ABOUT</a>
+            <a href="#skills">03 / SKILLS</a>
+            <a href="#work">04 / WORK</a>
+            <a href="#contact">05 / CONTACT</a>
+        </nav>
+
+        <div class="side-text">
+            CHARAN<br>
+            CREATIVE DEVELOPER<br>
+            AI EXPLORER<br>
+            © 2026
+        </div>
+
+    </aside>
+
+
+    <!-- CONTENT -->
+
+    <main>
+
+        <!-- HOME -->
+
+        <section class="hero" id="home">
+
+            <div class="tag">
+                [ SYSTEM ONLINE ]
+            </div>
+
+            <h1>
+                I'M<br>
+                <span>CHARAN</span>
+            </h1>
+
+            <p class="hero-description">
+                Creative developer building digital experiences
+                where technology, artificial intelligence and
+                design meet.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#work" class="btn">
+                    VIEW WORK
+                </a>
+
+                <a href="#contact" class="btn">
+                    CONTACT
+                </a>
+            </div>
+
+            <div class="orb"></div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="section-label">
+                02 / ABOUT
+            </div>
+
+            <h2 class="section-heading">
+                THE PERSON<br>
+                BEHIND THE CODE.
+            </h2>
+
+            <div class="about-grid">
+
+                <p>
+                    Hi, I'm Charan. I enjoy creating websites,
+                    applications and digital experiments that
+                    combine clean code with creative ideas.
+                </p>
+
+                <div class="info-box">
+
+                    <h3>PROFILE_DATA</h3>
+
+                    <div class="info-row">
+                        <span>Name</span>
+                        <span>Charan</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Role</span>
+                        <span>Developer</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Focus</span>
+                        <span>Web + AI</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Status</span>
+                        <span>Available</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section id="skills">
+
+            <div class="section-label">
+                03 / SKILLS
+            </div>
+
+            <h2 class="section-heading">
+                MY TOOLBOX.
+            </h2>
+
+            <div class="skill-grid">
+
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">AI / ML</div>
+                <div class="skill">UI / UX</div>
+                <div class="skill">Git</div>
+                <div class="skill">Creative Code</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORK -->
+
+        <section id="work">
+
+            <div class="section-label">
+                04 / SELECTED WORK
+            </div>
+
+            <h2 class="section-heading">
+                PROJECTS.
+            </h2>
+
+            <div class="projects">
+
+                <article class="project">
+
+                    <div class="project-number">
+                        PROJECT_001
+                    </div>
+
+                    <h3>
+                        AI<br>
+                        ASSISTANT
+                    </h3>
+
+                    <p>
+                        An experimental AI interface created
+                        to explore human-computer interaction.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        EXPLORE →
+                    </a>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-number">
+                        PROJECT_002
+                    </div>
+
+                    <h3>
+                        DIGITAL<br>
+                        LAB
+                    </h3>
+
+                    <p>
+                        A collection of creative web experiments
+                        using animation and interactive design.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        EXPLORE →
+                    </a>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-number">
+                        PROJECT_003
+                    </div>
+
+                    <h3>
+                        SMART<br>
+                        DASHBOARD
+                    </h3>
+
+                    <p>
+                        A futuristic dashboard concept for
+                        visualizing data and AI insights.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        EXPLORE →
+                    </a>
+
+                </article>
+
+
+                <article class="project">
+
+                    <div class="project-number">
+                        PROJECT_004
+                    </div>
+
+                    <h3>
+                        CREATIVE<br>
+                        WEB
+                    </h3>
+
+                    <p>
+                        A visually experimental website focused
+                        on typography, interaction and motion.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        EXPLORE →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI LAB -->
+
+        <section>
+
+            <div class="section-label">
+                AI / LAB
+            </div>
+
+            <h2 class="section-heading">
+                CHARAN'S<br>
+                AI TERMINAL.
+            </h2>
+
+            <div class="terminal">
+
+                <div class="terminal-header">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+
+                <p>
+                    <span class="green">charan@portfolio</span>:~$ start_ai
+                </p>
+
+                <p>
+                    Initializing neural interface...
+                </p>
+
+                <p>
+                    Loading creative engine...
+                </p>
+
+                <p>
+                    Connecting to imagination...
+                </p>
+
+                <p>
+                    Processing ideas...
+                </p>
+
+                <p class="green">
+                    ✓ AI SYSTEM READY
+                </p>
+
+                <p>
+                    <span class="green">charan@portfolio</span>:~$
+                    create_something_amazing
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+
+        <section>
+
+            <div class="section-label">
+                QUICK STATS
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>10+</strong>
+                    <span>Projects</span>
+                </div>
+
+                <div class="stat">
+                    <strong>05+</strong>
+                    <span>Technologies</span>
+                </div>
+
+                <div class="stat">
+                    <strong>∞</strong>
+                    <span>Ideas</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact" id="contact">
+
+            <div class="section-label">
+                05 / CONTACT
+            </div>
+
+            <h2>
+                LET'S<br>
+                BUILD<br>
+                <span>TOGETHER.</span>
+            </h2>
+
+            <a
+                href="mailto:charan@example.com"
+                class="email"
+            >
+                charan@example.com
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            CHARAN © 2026
+        </span>
+
+        <span>
+            CODE / AI / DESIGN
+        </span>
+
+    </footer>
+
+</body>
+</html>
